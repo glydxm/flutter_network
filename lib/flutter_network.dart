@@ -24,11 +24,11 @@ class FlutterNetwork {
 
   //http网络请求get
   static Future _getByHttp(String url, {Map<String, String> params}) async {
-    await _channel.invokeMethod("http_get", params);
+    return await _channel.invokeMethod("http_get", params);
   }
 
   //http网络请求post
   static Future _postByHttp(String url, {Map<String, String> params}) async {
-    await _channel.invokeMethod("http_post", params);
+    return await _channel.invokeMethod("http_post", params);
   }
 }
