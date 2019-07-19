@@ -25,6 +25,8 @@ public class FlutterNetworkPlugin implements MethodCallHandler {
   @Override
   public void onMethodCall(MethodCall call, final Result result) {
     switch (call.method) {
+      case "getPlatformVersion":
+        result.success("Android " + android.os.Build.VERSION.RELEASE);
       case "http_get":
 
       case "http_post":
