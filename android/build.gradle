@@ -38,7 +38,3 @@ android {
         }
     }
 }
-
-dependencies {
-    implementation 'com.github.glydxm:androidlibs:1.0.0'
-}

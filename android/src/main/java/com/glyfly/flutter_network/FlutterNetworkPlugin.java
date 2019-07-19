@@ -1,15 +1,10 @@
 package com.glyfly.flutter_network;
 
-import android.content.Context;
-import android.widget.Toast;
-
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
-import okhttp.callback.StringCallBack;
-import okhttp.tool.HttpTool;
 
 /** FlutterNetworkPlugin */
 public class FlutterNetworkPlugin implements MethodCallHandler {
@@ -29,22 +24,11 @@ public class FlutterNetworkPlugin implements MethodCallHandler {
 
   @Override
   public void onMethodCall(MethodCall call, final Result result) {
-    String url = "http://192.168.155.1:2019/findStore";
     switch (call.method) {
       case "http_get":
-        HttpTool.get(context, url, new StringCallBack() {
-          @Override
-          public void onResponse(String s, int i) {
-            Toast.makeText(context, s, Toast.LENGTH_SHORT).show();
-            result.success(s);
-          }
-        });
-        break;
+
       case "http_post":
 
-        break;
-      case "getPlatformVersion":
-        result.success("Android " + android.os.Build.VERSION.RELEASE);
         break;
       default:
         result.notImplemented();
