@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
@@ -37,7 +38,9 @@ class FlutterNetwork {
     }
     try {
       http.Response res = await http.get(url, headers: _getHeader());
-      return res.body;
+      Utf8Decoder utf8decoder = Utf8Decoder();
+      String body = utf8decoder.convert(res.bodyBytes);
+      return body;
     } catch (error) {
       print(error);
       return Future.error(error);
@@ -48,7 +51,9 @@ class FlutterNetwork {
   static Future<String> _postByHttp(String url, {Map<String, String> params}) async {
     try {
       http.Response res = await http.post(url, body: params, headers: _getHeader());
-      return res.body;
+      Utf8Decoder utf8decoder = Utf8Decoder();
+      String body = utf8decoder.convert(res.bodyBytes);
+      return body;
     } catch (error) {
       print(error);
       return Future.error(error);
