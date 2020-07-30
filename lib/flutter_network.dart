@@ -16,7 +16,7 @@ class FlutterNetwork {
 
   // get请求的封装，传入的两个参数分别是请求URL和请求参数，请求参数以map的形式传入，会在方法体中自动拼接到URL后面
   static Future<String> get(String url, {Map<String, String> body, Map<String, Object> header}) async {
-    return await _getByHttp(url, params: body, header: header);
+    return await _getByHttp(url, body: body, header: header);
   }
 
   // post请求的封装，传入的两个参数分别是请求URL和请求参数，请求参数以map的形式传入
